@@ -2,7 +2,7 @@ package main
 
 /*
 #cgo CFLAGS: -IMemoryModule
-#cgo LDFLAGS: MemoryModule/MemoryModule.o
+#cgo LDFLAGS: MemoryModule/build/MemoryModule.a
 #include "MemoryModule/MemoryModule.h"
 */
 import "C"

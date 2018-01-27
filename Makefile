@@ -14,7 +14,7 @@ arch = 386
 
 # Build the dependencies first (subdirs), then move onto the meat and potatoes.
 all: MemoryModule
-	CC=$(compiler) CGO_ENABLED=1 GOOS=windows GOARCH=386 go build -x memorymodule.go
+	CC=$(compiler) CGO_ENABLED=1 GOOS=windows GOARCH=$(arch) go build -x memorymodule.go
 
 # Dependency build. 
 SUBDIRS = MemoryModule

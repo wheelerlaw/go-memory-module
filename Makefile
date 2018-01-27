@@ -5,7 +5,6 @@
 # endif
 # arch = amd64
 
-
 ifneq ("$(shell which i686-w64-mingw32-gcc)","")
 compiler = i686-w64-mingw32-gcc
 else

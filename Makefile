@@ -1,8 +1,17 @@
+# ifneq ("$(shell which x86_64-w64-mingw32-gcc)","")
+# compiler = x86_64-w64-mingw32-gcc
+# else
+# compiler = amd64-mingw32msvc-gcc
+# endif
+# arch = amd64
+
+
 ifneq ("$(shell which i686-w64-mingw32-gcc)","")
 compiler = i686-w64-mingw32-gcc
 else
 compiler = i586-mingw32msvc-gcc
 endif
+arch = 386
 
 # Build the dependencies first (subdirs), then move onto the meat and potatoes.
 all: MemoryModule
@@ -16,9 +25,9 @@ $(SUBDIRS):
 # Override default subdir build behavior (make) with cmake. 
 MemoryModule:
 	[ "`ls -A MemoryModule`" ] || git submodule update --init
-	# $(MAKE) -C $@
-	cmake -HMemoryModule -BMemoryModule/build
-	cmake --build MemoryModule/build --target MemoryModule
+	$(MAKE) -C $@
+	# cmake -HMemoryModule -BMemoryModule/build
+	# cmake --build MemoryModule/build --target MemoryModule
 
 # Clean targed. 
 CLEANDIRS = $(SUBDIRS:%=clean-%)

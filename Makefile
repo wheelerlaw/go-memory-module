@@ -24,9 +24,8 @@ $(SUBDIRS):
 # Override default subdir build behavior (make) with cmake. 
 MemoryModule:
 	[ "`ls -A MemoryModule`" ] || git submodule update --init
-	$(MAKE) -C $@
-	# cmake -HMemoryModule -BMemoryModule/build
-	# cmake --build MemoryModule/build --target MemoryModule
+	cmake -HMemoryModule -BMemoryModule/build
+	cmake --build MemoryModule/build --target MemoryModule
 
 # Clean targed. 
 CLEANDIRS = $(SUBDIRS:%=clean-%)

@@ -7,7 +7,7 @@ arch = amd64
 
 # Build the dependencies first (subdirs), then move onto the meat and potatoes.
 all: MemoryModule
-	CC=$(compiler) CGO_ENABLED=1 GOOS=windows GOARCH=$(arch) go build -x memorymodule.go
+	CGO_LDFLAGS_ALLOW=".*\.a" CC=$(compiler) CGO_ENABLED=1 GOOS=windows GOARCH=$(arch) go build -x memorymodule.go
 
 # Dependency build. 
 SUBDIRS = MemoryModule

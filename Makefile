@@ -1,16 +1,9 @@
-# ifneq ("$(shell which x86_64-w64-mingw32-gcc)","")
-# compiler = x86_64-w64-mingw32-gcc
-# else
-# compiler = amd64-mingw32msvc-gcc
-# endif
-# arch = amd64
-
-ifneq ("$(shell which i686-w64-mingw32-gcc)","")
-compiler = i686-w64-mingw32-gcc
+ifneq ("$(shell which x86_64-w64-mingw32-gcc)","")
+compiler = x86_64-w64-mingw32-gcc
 else
-compiler = i586-mingw32msvc-gcc
+compiler = amd64-mingw32msvc-gcc
 endif
-arch = 386
+arch = amd64
 
 # Build the dependencies first (subdirs), then move onto the meat and potatoes.
 all: MemoryModule
